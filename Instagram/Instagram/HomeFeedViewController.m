@@ -6,12 +6,19 @@
 //
 
 #import "HomeFeedViewController.h"
+#import "Parse/Parse.h"
+
 
 @interface HomeFeedViewController ()
 
 @end
 
 @implementation HomeFeedViewController
+- (IBAction)didTapLogout:(id)sender {
+    [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
+    }];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
