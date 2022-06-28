@@ -34,6 +34,7 @@
             NSLog(@"User posted photo successfully");
         }
     }];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
     UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
@@ -76,9 +77,10 @@
     // Get the image captured by the UIImagePickerController
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
-    
-    // Do something with the images (based on your use case)
-    self.photoToPost.image = editedImage;
+    CGRect bounds = UIScreen.mainScreen.bounds;      // fetches device's screen
+    CGFloat width = bounds.size.width;               // extracts width of bounds
+    CGSize imageSize = CGSizeMake(width, width);     // creates square image
+    self.photoToPost.image = [self resizeImage:editedImage withSize:imageSize];
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
 }

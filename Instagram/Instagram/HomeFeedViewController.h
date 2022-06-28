@@ -10,7 +10,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HomeFeedViewController : UIViewController
-
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
+- (void)fetchPosts;
 @end
 
 NS_ASSUME_NONNULL_END
