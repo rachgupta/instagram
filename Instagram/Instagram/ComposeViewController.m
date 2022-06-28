@@ -24,6 +24,9 @@
     [self presentViewController:imagePickerVC animated:YES completion:nil];
     
 }
+- (IBAction)didTapClose:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 - (IBAction)didTapShare:(id)sender {
     //UIImage *resized_image = [self resizeImage: self.photoToPost.image withSize:([CGS])];
     [Post postUserImage:self.photoToPost.image withCaption:self.caption.text

@@ -9,7 +9,8 @@
 #import "Parse/Parse.h"
 #import "PostCell.h"
 #import "PFImageView.h"
-
+#import "DetailsViewController.h"
+#import "ComposeViewController.h"
 
 @interface HomeFeedViewController () <UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -37,11 +38,13 @@
 }
 - (void)fetchPosts {
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    [query orderByDescending:@"createdAt"];
     //[query whereKey:@"likesCount" greaterThan:@100];
     //query.limit = 20;
 
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+    
         if (posts != nil) {
             self.posts = posts;
             [self.tableView reloadData];
@@ -62,6 +65,16 @@
     [cell setPost:post];
     //cell.postCaption.text = @"Test";
     return cell;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqual:@"detailSegue"])
+   {
+       NSIndexPath *myPath = [self.tableView indexPathForCell:sender];
+       Post *dataToPass = self.posts[myPath.row];
+       DetailsViewController *detailVC = [segue destinationViewController];
+       detailVC.post = dataToPass;
+   }
 }
 
 /*

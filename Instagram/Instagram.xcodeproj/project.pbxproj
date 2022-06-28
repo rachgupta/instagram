@@ -19,6 +19,7 @@
 		065EE82E286A2ADA00D1C648 /* InstagramUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 065EE82D286A2ADA00D1C648 /* InstagramUITestsLaunchTests.m */; };
 		06987FB3286B755800ED13E5 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 06987FB2286B755800ED13E5 /* Post.m */; };
 		06987FB6286B993A00ED13E5 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06987FB5286B993A00ED13E5 /* PostCell.m */; };
+		06987FB9286BB4B100ED13E5 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06987FB8286BB4B100ED13E5 /* DetailsViewController.m */; };
 		06EAC879286A47E600469FFA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EAC878286A47E600469FFA /* LoginViewController.m */; };
 		06EAC87C286A491E00469FFA /* HomeFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EAC87B286A491E00469FFA /* HomeFeedViewController.m */; };
 		06EAC87F286A58E600469FFA /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EAC87E286A58E600469FFA /* ComposeViewController.m */; };
@@ -66,6 +67,8 @@
 		06987FB2286B755800ED13E5 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		06987FB4286B993A00ED13E5 /* PostCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCell.h; sourceTree = "<group>"; };
 		06987FB5286B993A00ED13E5 /* PostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
+		06987FB7286BB4B100ED13E5 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		06987FB8286BB4B100ED13E5 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		06EAC877286A47E600469FFA /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		06EAC878286A47E600469FFA /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		06EAC87A286A491E00469FFA /* HomeFeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeFeedViewController.h; sourceTree = "<group>"; };
@@ -144,6 +147,8 @@
 				065EE80B286A2AD900D1C648 /* ViewController.h */,
 				065EE80C286A2AD900D1C648 /* ViewController.m */,
 				065EE80E286A2AD900D1C648 /* Main.storyboard */,
+				06987FB7286BB4B100ED13E5 /* DetailsViewController.h */,
+				06987FB8286BB4B100ED13E5 /* DetailsViewController.m */,
 				06987FB4286B993A00ED13E5 /* PostCell.h */,
 				06987FB5286B993A00ED13E5 /* PostCell.m */,
 				06987FB1286B755800ED13E5 /* Post.h */,
@@ -448,6 +453,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				065EE80D286A2AD900D1C648 /* ViewController.m in Sources */,
+				06987FB9286BB4B100ED13E5 /* DetailsViewController.m in Sources */,
 				06EAC87C286A491E00469FFA /* HomeFeedViewController.m in Sources */,
 				065EE807286A2AD900D1C648 /* AppDelegate.m in Sources */,
 				065EE818286A2ADA00D1C648 /* main.m in Sources */,
@@ -629,6 +635,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5T643H62KK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Instagram/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -656,6 +663,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5T643H62KK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Instagram/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
