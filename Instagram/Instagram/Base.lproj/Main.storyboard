@@ -121,36 +121,43 @@
                                     <constraint firstAttribute="width" constant="128" id="cge-rK-d0K"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ODv-u7-mHn">
-                                <rect key="frame" x="20" y="228" width="161" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ODv-u7-mHn">
+                                <rect key="frame" x="45" y="244" width="111" height="31"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Choose from Camera"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Photo Library"/>
                                 <connections>
                                     <action selector="didTapCameraRoll:" destination="1FV-kU-WUG" eventType="touchUpInside" id="8ZK-KI-xwt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Llz-J7-5tw">
-                                <rect key="frame" x="36" y="267" width="128" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Llz-J7-5tw">
+                                <rect key="frame" x="36" y="283" width="128" height="31"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Take Photo"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Camera"/>
                                 <connections>
                                     <action selector="didTapTakePhoto:" destination="1FV-kU-WUG" eventType="touchUpInside" id="T1G-Iu-FmG"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type a Caption Here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bpt-89-Xqg">
-                                <rect key="frame" x="172" y="83" width="222" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Type your caption here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="139-dI-nJz">
+                                <rect key="frame" x="174" y="106" width="220" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="IIy-zu-zLH"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1Ry-Pj-9Bj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="iy2-gz-d2O" firstAttribute="leading" secondItem="1Ry-Pj-9Bj" secondAttribute="leading" constant="36" id="4ZE-Yu-QEC"/>
+                            <constraint firstItem="Llz-J7-5tw" firstAttribute="top" secondItem="ODv-u7-mHn" secondAttribute="bottom" constant="8" id="Gxm-61-444"/>
+                            <constraint firstItem="ODv-u7-mHn" firstAttribute="top" secondItem="iy2-gz-d2O" secondAttribute="bottom" constant="10" id="Hcl-ED-b67"/>
+                            <constraint firstItem="139-dI-nJz" firstAttribute="top" secondItem="iy2-gz-d2O" secondAttribute="top" id="ak1-dJ-6Wl"/>
+                            <constraint firstItem="139-dI-nJz" firstAttribute="leading" secondItem="iy2-gz-d2O" secondAttribute="trailing" constant="10" id="hTY-fy-Fh9"/>
                             <constraint firstItem="iy2-gz-d2O" firstAttribute="top" secondItem="1Ry-Pj-9Bj" secondAttribute="top" constant="50" id="t6L-S6-fDA"/>
+                            <constraint firstItem="1Ry-Pj-9Bj" firstAttribute="trailing" secondItem="139-dI-nJz" secondAttribute="trailing" constant="20" id="z1V-kT-ZBn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yy5-2G-lDF">
@@ -168,11 +175,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Share"/>
+                                <connections>
+                                    <action selector="didTapShare:" destination="1FV-kU-WUG" eventType="touchUpInside" id="ENW-eA-Sta"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="caption" destination="bpt-89-Xqg" id="yO0-GF-iGC"/>
+                        <outlet property="caption" destination="139-dI-nJz" id="3Tg-Tq-0e3"/>
                         <outlet property="photoToPost" destination="iy2-gz-d2O" id="7Ms-YK-QfS"/>
                     </connections>
                 </viewController>
@@ -220,6 +230,9 @@
     <resources>
         <image name="image_placeholder" width="375" height="375"/>
         <image name="insta_camera_btn" width="25" height="25"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

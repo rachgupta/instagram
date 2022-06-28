@@ -6,10 +6,11 @@
 //
 
 #import "ComposeViewController.h"
+#import "Post.h"
 
 @interface ComposeViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *photoToPost;
-@property (weak, nonatomic) IBOutlet UITextField *caption;
+@property (weak, nonatomic) IBOutlet UITextView *caption;
 
 @end
 
@@ -22,6 +23,30 @@
 
     [self presentViewController:imagePickerVC animated:YES completion:nil];
     
+}
+- (IBAction)didTapShare:(id)sender {
+    //UIImage *resized_image = [self resizeImage: self.photoToPost.image withSize:([CGS])];
+    [Post postUserImage:self.photoToPost.image withCaption:self.caption.text
+         withCompletion:^(BOOL succeeded, NSError *error) {
+        if (error != nil) {
+            NSLog(@"User post failed: %@", error.localizedDescription);
+        } else {
+            NSLog(@"User posted photo successfully");
+        }
+    }];
+}
+- (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
+    UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    
+    resizeImageView.contentMode = UIViewContentModeScaleAspectFill;
+    resizeImageView.image = image;
+    
+    UIGraphicsBeginImageContext(size);
+    [resizeImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
 }
 - (IBAction)didTapTakePhoto:(id)sender {
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
@@ -54,7 +79,6 @@
     
     // Do something with the images (based on your use case)
     self.photoToPost.image = editedImage;
-    
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
 }
