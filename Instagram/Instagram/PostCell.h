@@ -7,9 +7,9 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
-#import <PFImageView.h>
+#import "Parse/PFImageView.h"
 #import "Post.h"
-@import Parse;
+
 
 NS_ASSUME_NONNULL_BEGIN
 

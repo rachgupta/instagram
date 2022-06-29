@@ -23,6 +23,8 @@
     PFUser *user = self.post.author;
     NSString *username = user.username;
     self.username.text = username;
+    self.profilePhoto.file = user[@"profilePhoto"];
+    [self.profilePhoto loadInBackground];
     [self refreshData];
     // Do any additional setup after loading the view.
 }
@@ -43,11 +45,12 @@
 - (void)refreshData {
     if(self.post.isFavorited==YES)
     {
-        [self.likeButton setImage:[UIImage imageNamed:@"heart.fill"] forState:UIControlStateNormal];
+        
+        [self.likeButton setImage:[UIImage systemImageNamed:@"heart.fill"] forState:UIControlStateNormal];
     }
     else if(self.post.isFavorited==NO)
     {
-        [self.likeButton setImage:[UIImage imageNamed:@"heart"] forState:UIControlStateNormal];
+        [self.likeButton setImage:[UIImage systemImageNamed:@"heart"] forState:UIControlStateNormal];
     }
     NSDate *date = self.post.createdAt;
     self.Timestamp.text = date.shortTimeAgoSinceNow;
