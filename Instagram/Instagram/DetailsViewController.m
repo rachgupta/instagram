@@ -25,6 +25,8 @@
     self.username.text = username;
     self.profilePhoto.file = user[@"profilePhoto"];
     [self.profilePhoto loadInBackground];
+    self.profilePhoto.layer.cornerRadius  = self.profilePhoto.frame.size.width/2;
+    self.profilePhoto.clipsToBounds = YES;
     [self refreshData];
     // Do any additional setup after loading the view.
 }

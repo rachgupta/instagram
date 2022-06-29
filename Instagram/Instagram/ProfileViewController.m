@@ -66,6 +66,7 @@
     CGFloat width = bounds.size.width;               // extracts width of bounds
     CGSize imageSize = CGSizeMake(width, width);     // creates square image
     self.profilePhoto.image = [self resizeImage:editedImage withSize:imageSize];
+    [self formatProfilePhoto];
     PFUser *user = [PFUser currentUser];
     NSData *imageData = UIImagePNGRepresentation(self.profilePhoto.image);
     PFFileObject *imageFile = [PFFileObject fileObjectWithName:@"image.png" data:imageData];
@@ -73,6 +74,10 @@
     [user saveInBackground];
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (void)formatProfilePhoto {
+    self.profilePhoto.layer.cornerRadius  = self.profilePhoto.frame.size.width/2;
+    self.profilePhoto.clipsToBounds = YES;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -83,6 +88,7 @@
     self.username.text = username;
     self.profilePhoto.file = user[@"profilePhoto"];
     [self.profilePhoto loadInBackground];
+    [self formatProfilePhoto];
 
     [self fetchPosts];
     // Do any additional setup after loading the view.
