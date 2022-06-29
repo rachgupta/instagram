@@ -15,6 +15,7 @@
 @dynamic image;
 @dynamic likeCount;
 @dynamic commentCount;
+@dynamic isFavorited;
 
 + (nonnull NSString *)parseClassName {
     return @"Post";
@@ -28,10 +29,13 @@
     newPost.caption = caption;
     newPost.likeCount = @(0);
     newPost.commentCount = @(0);
+    newPost.isFavorited = NO;
     
     [newPost saveInBackgroundWithBlock: completion];
 }
-
+- (void) refreshPost{
+    [self saveInBackground];
+}
 + (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
  
     // check if image is not nil

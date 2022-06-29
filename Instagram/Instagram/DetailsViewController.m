@@ -20,14 +20,40 @@
     [self.detailedImage loadInBackground];
     self.detailedCaption.text = self.post[@"caption"];
     NSLog(@"%@",self.detailedCaption.text);
-    NSDate *date = self.post.createdAt;
     PFUser *user = self.post.author;
     NSString *username = user.username;
     self.username.text = username;
-    self.Timestamp.text = date.shortTimeAgoSinceNow;
+    [self refreshData];
     // Do any additional setup after loading the view.
 }
+- (IBAction)didTapLike:(id)sender {
+    if(self.post.isFavorited==NO)
+    {
+        self.post.isFavorited = YES;
+        self.post.likeCount = [NSNumber numberWithInt:[self.post.likeCount intValue] + 1];
+    }
+    else if(self.post.isFavorited==YES)
+    {
+        self.post.isFavorited = NO;
+        self.post.likeCount = [NSNumber numberWithInt:[self.post.likeCount intValue] - 1];
+    }
+    [self refreshData];
+}
 
+- (void)refreshData {
+    if(self.post.isFavorited==YES)
+    {
+        [self.likeButton setImage:[UIImage imageNamed:@"heart.fill"] forState:UIControlStateNormal];
+    }
+    else if(self.post.isFavorited==NO)
+    {
+        [self.likeButton setImage:[UIImage imageNamed:@"heart"] forState:UIControlStateNormal];
+    }
+    NSDate *date = self.post.createdAt;
+    self.Timestamp.text = date.shortTimeAgoSinceNow;
+    [self.likeButton setTitle:[NSString stringWithFormat:@"%@",self.post.likeCount] forState:UIControlStateNormal];
+    [self.post refreshPost];
+}
 /*
 #pragma mark - Navigation
 

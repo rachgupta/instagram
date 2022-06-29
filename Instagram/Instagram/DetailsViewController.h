@@ -16,7 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *detailedCaption;
 @property (weak, nonatomic) IBOutlet UILabel *Timestamp;
 @property (weak, nonatomic) IBOutlet UILabel *username;
+@property (weak, nonatomic) IBOutlet UIButton *likeButton;
 @property (nonatomic, assign) Post *post;
+- (void) refreshData;
 @end
 
 NS_ASSUME_NONNULL_END
