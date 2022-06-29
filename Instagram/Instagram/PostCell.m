@@ -8,6 +8,7 @@
 #import "PostCell.h"
 #import "Parse/Parse.h"
 #import "Post.h"
+#import "DateTools.h"
 
 @implementation PostCell
 

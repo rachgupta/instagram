@@ -6,6 +6,7 @@
 //
 
 #import "DetailsViewController.h"
+#import "DateTools.h"
 
 @interface DetailsViewController ()
 
@@ -19,6 +20,9 @@
     [self.detailedImage loadInBackground];
     self.detailedCaption.text = self.post[@"caption"];
     NSLog(@"%@",self.detailedCaption.text);
+    NSDate *date = self.post.createdAt;
+    
+    self.Timestamp.text = date.shortTimeAgoSinceNow;
     // Do any additional setup after loading the view.
 }
 
