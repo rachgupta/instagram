@@ -12,7 +12,7 @@
 #import "DetailsViewController.h"
 #import "ComposeViewController.h"
 
-@interface HomeFeedViewController () <UITableViewDataSource,UITableViewDelegate>
+@interface HomeFeedViewController () <UITableViewDataSource,UITableViewDelegate, UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *posts;
 
@@ -39,6 +39,7 @@
 - (void)fetchPosts {
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query orderByDescending:@"createdAt"];
+    [query includeKey:@"author"];
     //[query whereKey:@"likesCount" greaterThan:@100];
     //query.limit = 20;
 

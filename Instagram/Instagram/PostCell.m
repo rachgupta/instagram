@@ -23,6 +23,9 @@
     [self.imagePost loadInBackground];
     self.postCaption.text = post[@"caption"];
     NSLog(@"%@",self.postCaption.text);
+    PFUser *user = self.post.author;
+    NSString *username = user.username;
+    self.username.text = username;
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

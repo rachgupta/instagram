@@ -21,7 +21,9 @@
     self.detailedCaption.text = self.post[@"caption"];
     NSLog(@"%@",self.detailedCaption.text);
     NSDate *date = self.post.createdAt;
-    
+    PFUser *user = self.post.author;
+    NSString *username = user.username;
+    self.username.text = username;
     self.Timestamp.text = date.shortTimeAgoSinceNow;
     // Do any additional setup after loading the view.
 }
